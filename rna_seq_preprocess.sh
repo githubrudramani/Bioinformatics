@@ -21,8 +21,8 @@ do
     fastp  -i $R1 -I $R2  --detect_adapter_for_pe  -o filtered_read/$R1 -O filtered_read/$R2  -h filtered_read/$B.html
     bwa mem -t 8 $bwaIndex filtered_read/$R1 filtered_read/$R2 > ${B}.sam
     samtools view -Sb ${B}.sam > ${B}.unsorted.bam
-    samtools sort  -o ${B}.bam ${B}.unsorted.bam
+    samtools sort  -o ${B}_sorted.bam ${B}.unsorted.bam
     samtools index ${B}.bam
-    htseq-count --format=bam --stranded=no --type=gene --order=pos --idattr=ID ${B}.bam  $gff3  > htseq_count/${B}.txt
+    htseq-count --format=bam --stranded=no --type=gene --order=pos --idattr=ID ${B}_sorted.bam  $gff3  > htseq_count/${B}.txt
 
 done
