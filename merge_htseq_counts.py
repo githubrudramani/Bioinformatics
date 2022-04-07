@@ -22,6 +22,6 @@ def merge_count(input_files = "*txt"):
     df =df.groupby(df.index).mean()
     df.columns = [i[0:-4] for i in df.columns]
     return df
-df = merge_count("htseq_result/*txt")
+df = merge_count("*txt")
 df.to_csv("merged_counts.csv")
 print("Data merged succesfully")
