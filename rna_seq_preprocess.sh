@@ -14,8 +14,8 @@ do
    # which only captures the sample information
     B=${R1::-16}
    # Here B trims all the last 16 character from read file. You can choose your own number
-    fastp  -i $R1 -I $R2  --detect_adapter_for_pe  -o filtered_read /$R1 -O fastP/$R2  -h fastP/$B.html
-    bwa mem -t 8 bwa_index filtered_read/$R1 fastP/$R2 > ${B}.sam
+    fastp  -i $R1 -I $R2  --detect_adapter_for_pe  -o filtered_read/$R1 -O filtered_read/$R2  -h filtered_read/$B.html
+    bwa mem -t 8 bwa_index filtered_read/$R1 filtered_read/$R2 > ${B}.sam
     samtools view -Sb ${B}.sam > ${B}.unsorted.bam
     samtools sort  -o ${B}.bam ${B}.unsorted.bam
     samtools index ${B}.bam
