@@ -1,3 +1,7 @@
+
+# define path for reference genome and index
+bwaIndex=/xdisk/rpokhrel/TIGR4_2/bwa_index
+gff3=/xdisk/rpokhrel/TIGR4_2/tigr4.gff3
 # Create directory for filtered read and count matrix
 mkdir -p filtered_read
 mkdir -p htseq_count
@@ -15,7 +19,7 @@ do
     B=${R1::-16}
    # Here B trims all the last 16 character from read file. You can choose your own number
     fastp  -i $R1 -I $R2  --detect_adapter_for_pe  -o filtered_read/$R1 -O filtered_read/$R2  -h filtered_read/$B.html
-    bwa mem -t 8 bwa_index filtered_read/$R1 filtered_read/$R2 > ${B}.sam
+    bwa mem -t 8 $bwaIndex filtered_read/$R1 filtered_read/$R2 > ${B}.sam
     samtools view -Sb ${B}.sam > ${B}.unsorted.bam
     samtools sort  -o ${B}.bam ${B}.unsorted.bam
     samtools index ${B}.bam
