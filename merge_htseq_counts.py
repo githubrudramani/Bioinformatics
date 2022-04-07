@@ -1,12 +1,3 @@
-import argparse
-
-parser = argparse.ArgumentParser(description='Script to merge htseq-count data form multiple samples')
-
-parser.add_argument("Run this script in the folder contaning count data")
-
-args = parser.parse_args()
-
-print(args.print_string)
 import pandas as pd
 import glob
 print("Merging started")
