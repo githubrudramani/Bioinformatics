@@ -1,7 +1,7 @@
 
 # define path for reference genome and index
-bwaIndex=/xdisk/rpokhrel/TIGR4_2/bwa_index
-gff3=/xdisk/rpokhrel/TIGR4_2/tigr4.gff3
+bwaIndex=/path/to/bwa_index
+gff3=/path/to /annotation.gff3
 # Create directory for filtered read and count matrix
 mkdir -p filtered_read
 mkdir -p htseq_count
