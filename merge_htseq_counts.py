@@ -24,6 +24,6 @@ def merge_count(input_files = "*txt"):
     return df
 df = merge_count("*txt")
 df.to_csv("merged_counts.csv")
-meta = pd.DataFrame(df.columns, colnames = ["samples"])
+meta = pd.DataFrame(df.columns, columns = ["samples"])
 meta.to_csv("metaData.csv")
 print("Data merged succesfully")
