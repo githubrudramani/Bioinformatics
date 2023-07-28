@@ -19,7 +19,7 @@ def merge_count(input_files = "*txt"):
         if  i.startswith("_"):
             discard.append(i)
     df = df.drop(discard)
-    df =df.groupby(df.index).mean()
+    df =df.groupby(df.index).max()
     df.columns = [i[0:-4] for i in df.columns]
     return df
 df = merge_count("*txt")
